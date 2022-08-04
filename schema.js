@@ -14,7 +14,7 @@ type Store{
     store: String
 }
 
-type StoreInput {
+input StoreInput {
     store: String
 }
 
@@ -31,7 +31,7 @@ type Mutation {
     createProduct(input: ProductInput): Product
 }
 type Query {
-    product: Product
+    getProducts(id: ID): Product
 }`)
 
 export default schema;
