@@ -1,1 +1,1 @@
-# graphql-apollo-server
+# graphql Essentials
