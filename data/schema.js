@@ -37,9 +37,12 @@ input ProductInput {
 
 type Mutation {
     createProduct(input: ProductInput): Product
+    updateProduct(input: ProductInput): Product
+    deleteProduct(id:ID!): String
 }
 type Query {
     getProduct(id: ID): Product
+    getAllProducts: [Product]
 }`)
 
 export default schema;

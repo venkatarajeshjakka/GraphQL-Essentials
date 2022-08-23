@@ -12,6 +12,9 @@ import { Widgets } from './dbConnectors'
             })
         }); 
     },
+    getAllProducts : () =>{
+        return Widgets.find({})
+    },
     createProduct: ({input}) =>{
 
         const newWidget = new Widgets({
@@ -30,6 +33,25 @@ import { Widgets } from './dbConnectors'
                 if(error) reject(error)
                 else resolve(newWidget)
             });
+        })
+    },
+    updateProduct: ({input}) =>{
+
+        return new Promise((resolve) =>{
+            newWidget.findOneAndUpdate({_id:input.id},input,{
+                new:true
+            },(error,widget) =>{
+                if(error) reject(error)
+                else resolve(widget)
+            });
+        })
+    },
+    deleteProduct: ({id}) =>{
+        return new Promise((resolve) =>{
+            Widgets.remove({_id:id},(error) =>{
+                if(error) reject(error)
+                else resolve("Successfully deleted widget")
+            })
         })
     }
 }
